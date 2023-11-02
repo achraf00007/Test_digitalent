@@ -52,13 +52,28 @@ export default {
   methods:{
     async submitLogin(){
       var vm = this;
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (vm.email == '' || vm.password == ''){
         vm.$toast.open({
-					message: 'Pleaser enter your information correctly !',
+					message: 'Pleaser enter your information correctly!',
 					type: 'error',
 					position: 'top',
 					duration: 5000
 				});
+      }else if (!emailPattern.test(vm.email)) {
+        vm.$toast.open({
+          message: 'Please enter a valid e-mail address!',
+          type: 'error',
+          position: 'top',
+          duration: 5000
+        });
+      }else if (vm.password.length < 5) { 
+        vm.$toast.open({
+          message: 'The password must be at least 5 characters long!',
+          type: 'error',
+          position: 'top',
+          duration: 5000
+        });
       }else {
         const result = await this.$loginUser(vm.email, vm.password);
 

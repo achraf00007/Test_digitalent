@@ -23,7 +23,19 @@
                 </div>
                 <div class="row">
                   <div class="col-md-6 form-group">
-                    <input type="text" v-model="telephone" class="form-control rounded-left" placeholder="Phone" required>
+                    <vue-tel-input 
+                      class="form-control rounded-left px-2"
+                      ref="intlTel"
+                      v-model="telephone"
+                      :ignoredCountries="['EH']"
+                      :preferredCountries="['MA', 'FR']"
+                      defaultCountry="MA"
+                      :inputOptions="tel_placeholder"
+                      mode="national"
+                      required
+                    >
+                    </vue-tel-input>
+                    <!-- <input type="text" v-model="telephone" class="form-control rounded-left" placeholder="Phone" required> -->
                   </div>
                   <div class="col-md-6 form-group">
                     <input type="text" v-model="adresse" class="form-control rounded-left" placeholder="Adress" required>
@@ -66,11 +78,21 @@ export default {
       password: '',
       adresse: '',
       telephone: '',
+      tel_placeholder: {
+        'placeholder': "Phone"
+      },
     };
+  },
+  computed: {
+    fulltelnumber(){
+      return this.$refs.intlTel.phoneObject.number;
+    },
   },
   methods: {
     async register() {
       var vm = this;
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      
       const userData = {
         nom: vm.nom,
         prenom: vm.prenom,
@@ -88,6 +110,28 @@ export default {
 					position: 'top',
 					duration: 5000
 				});
+      }else if (vm.$refs.intlTel.phoneObject.valid == false){
+        vm.$toast.open({
+          message: 'Please enter a valid number phone!',
+          type: 'error',
+          position: 'top',
+          duration: 5000
+        });
+      }
+      else if (!emailPattern.test(vm.email)) {
+        vm.$toast.open({
+          message: 'Please enter a valid e-mail address!',
+          type: 'error',
+          position: 'top',
+          duration: 5000
+        });
+      }else if (vm.password.length < 5) { 
+        vm.$toast.open({
+          message: 'The password must be at least 5 characters long!',
+          type: 'error',
+          position: 'top',
+          duration: 5000
+        });
       }else {
         const result = await this.$registerUser(userData);
 
@@ -120,5 +164,13 @@ export default {
 </script>
 
 <style>
-  
+  .vti__input {
+    background: transparent;
+  }
+  .vue-tel-input {
+    border: 1px solid transparent;
+  }
+  .vti__input::placeholder {
+    color: #6c757d !important;
+  }
 </style>

@@ -47,14 +47,11 @@
 </template>
 
 <script>
-import VueApexCharts from 'vue-apexcharts';
+
 import _round from "lodash/round";
 export default {
 	name: 'InfoPage',
-  components: {
-    apexchart: VueApexCharts,
-  },
-	data() {
+  data() {
 		return {
       token: this.$store.get("token"),
       user: this.$store.get("user"),
