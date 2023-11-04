@@ -9,6 +9,15 @@ const users = [
     telephone: '0660756048',
   },
   {
+    nom: 'ELMardi',
+    prenom: 'Achraf',
+    email: 'a.elmardi@gmail.com',
+    password: 'password123',
+    adresse: '641, Hay maghreb arabi',
+    city: 'Rabat',
+    telephone: '0676341880',
+  },
+  {
     nom: 'Alloul',
     prenom: 'Anass',
     email: 'Alloulanass@gmail.com',

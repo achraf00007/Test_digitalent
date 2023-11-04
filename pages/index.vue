@@ -16,8 +16,8 @@
                 <div class="form-group d-flex">
                   <input type="password" v-model="password" class="form-control rounded-left" placeholder="Password" required>
                 </div>
-                <div class="form-group">
-                  <button type="button" @click="submitLogin" class="btn btn-primary rounded font-weight-bold submit p-3 px-5">Log In</button>
+                <div class="form-group btn-submit">
+                  <button type="button" @click="submitLogin" class="btn rounded-circle submitLogin font-weight-bold">Log In</button>
                 </div>
                 <div class="form-group m-0">
                   <div class="text-center">
@@ -107,5 +107,17 @@ export default {
 </script>
 
 <style>
-  
+  .submitLogin {
+    background-color: #6130dd !important;
+    color: aliceblue!important;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: 1px 1px 7px #aaa !important;
+    padding: 10px 55px;
+  }
+  .btn-submit{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
 </style>
