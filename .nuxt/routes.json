@@ -3,21 +3,18 @@
     "name": "info",
     "path": "/info",
     "component": "E:\\\\TEST\\\\DigiTalent\\\\pages\\\\info.vue",
-    "chunkName": "pages/info",
-    "_name": "_0fd05bcc"
+    "chunkName": "pages/info"
   },
   {
     "name": "register",
     "path": "/register",
     "component": "E:\\\\TEST\\\\DigiTalent\\\\pages\\\\register.vue",
-    "chunkName": "pages/register",
-    "_name": "_b6d4e0e2"
+    "chunkName": "pages/register"
   },
   {
     "name": "index",
     "path": "/",
     "component": "E:\\\\TEST\\\\DigiTalent\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_d810c9d4"
+    "chunkName": "pages/index"
   }
 ]
