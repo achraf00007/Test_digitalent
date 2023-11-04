@@ -2,7 +2,7 @@
   <div>
     <section class="ftco-section pt-5">
       <div class="container">
-        <div class="row justify-content-end mb-5">
+        <div class="row justify-content-end mb-5" v-if="user != null">
           <div class="col-md-3">
               <div class="form-group">
                 <button type="button" @click="logout()" class="btn btn-primary rounded submit font-weight-bold p-3 px-5">

@@ -170,7 +170,9 @@ export default {
   .vue-tel-input {
     border: 1px solid transparent;
   }
-  .vti__input::placeholder {
+  input.vti__input::placeholder {
     color: #6c757d !important;
+    opacity: 0.4;
+    font-weight: 400;
   }
 </style>
